@@ -17,7 +17,10 @@ User.init(
         },
         username: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                len:[4]
+            } 
         },
         email: {
             type: DataTypes.STRING,
@@ -31,7 +34,7 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                // makes password atleast 4 characters long
+                // makes password at least 4 characters long
                 len:[4]
             }
         }

@@ -61,7 +61,7 @@ User.init(
         freezeTableName: true,
         // use underscores instead of camel casing
         underscored: true,
-        // makes what ever you write the name in db
+        // names the table
         modelName: 'user'
     }
 );

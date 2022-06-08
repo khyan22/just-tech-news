@@ -48,6 +48,23 @@ router.post('/', (req, res) => {
     });
 });
 
+// log in route
+router.post('/login', (req, res) => {
+    User.findOne({
+        where: {
+            email: req.body.email
+        }
+    }).then(dbUserData => {
+        const validPassword = dbUserData.checkPassword(req.body.password);
+
+        if (!validPassword) {
+            res.status(400).json({ message: 'Your password is incorrect, please try again.'})
+        }
+
+        res.json({ user: dbUserData, message: 'You are now logged in.'});
+    });
+});
+
 // PUT new data into users
 router.put('/:id', (req, res) => {
     User.update(req.body, {

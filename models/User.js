@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
 
 //create user model
 class User extends Model {};
@@ -40,6 +41,14 @@ User.init(
         }
     },
     {
+        hooks: {
+            //hook
+            async beforeCreate(newUserData) {
+                newUserData.password = await bcrypt.hash(newUserData.password, 10);
+                return newUserData;
+            }
+        },
+
         // pass in imported sequelize connection (direct connection to db)
         sequelize,
         // timestamps give two time related attributes to obj (createdAt & updatedAt)

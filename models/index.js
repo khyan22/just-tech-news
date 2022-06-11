@@ -7,15 +7,15 @@ User.hasMany(Post, {
     foreignKey: 'user_id'
 });
 
+//connects to User table 
+Post.belongsTo(User, {
+    foreignKey: 'user_id'
+});
+
 //connects to post using many to many relationship and through Vote table
 User.belongsToMany(Post, {
     through: Vote, 
     as: 'voted_posts',
-    foreignKey: 'user_id'
-});
-
-//connects to User table 
-Post.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
@@ -32,7 +32,7 @@ Vote.belongsTo(User, {
 });
 
 //connects to post
-Vote.belongTo(Post, {
+Vote.belongsTo(Post, {
     foreignKey: 'post_id'
 });
 

@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "test": "jest",
     "start": "node server.js"
   },
   "repository": {
@@ -25,5 +26,8 @@
     "express-session": "^1.17.3",
     "mysql2": "^2.3.3",
     "sequelize": "^6.20.1"
+  },
+  "devDependencies": {
+    "jest": "^28.1.1"
   }
 }

@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
+//homepage route
 router.get('/', (req, res) => {
     console.log(req.session);
     //gets all the post date we need
@@ -46,6 +47,7 @@ router.get('/', (req, res) => {
     });
 });
 
+//login render route
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
@@ -55,6 +57,7 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+//single post page route
 router.get('/post/:id', (req, res) => {
     Post.findOne({
         where: {

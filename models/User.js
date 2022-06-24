@@ -40,7 +40,7 @@ User.init(
             allowNull: false,
             validate: {
                 // makes password at least 4 characters long
-                len:[4]
+                len:[8]
             }
         },
     },

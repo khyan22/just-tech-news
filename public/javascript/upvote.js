@@ -5,6 +5,7 @@ async function upvoteClickHandler(event) {
         window.location.toString().split('/').length - 1
     ];
     
+    
     const response = await fetch('/api/posts/upvote', {
         method: 'PUT',
         body: JSON.stringify({

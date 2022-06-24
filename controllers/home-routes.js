@@ -18,11 +18,14 @@ router.get('/', (req, res) => {
             {
                 //includes every comment attached to the post
                 model: Comment,
-                attributes: {
+                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                include: [
+                    {
                     //adds the username of the user that made the COMMENT
                     model: User,
                     attributes: ['username']
-                }
+                    }
+                ]
             },
             {
                 //add the username of the user that made the POST
